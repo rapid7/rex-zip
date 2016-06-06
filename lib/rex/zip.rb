@@ -9,6 +9,7 @@
 #
 require 'rex/zip/version'
 require 'zlib'
+require 'rex/text'
 
 module Rex
   module Zip
