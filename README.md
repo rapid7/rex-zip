@@ -1,8 +1,7 @@
 # Rex::Zip
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rex/zip`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby Exploitation(Rex) Library for creating Zip based archives such as *.zip, *.war, and *.jar files. Ported from the original
+Metasploit Framework code written by jduck.
 
 ## Installation
 
@@ -22,7 +21,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Creating a .zip example:
+
+```ruby
+msfbase = __FILE__
+while File.symlink?(msfbase)
+  msfbase = File.expand_path(File.readlink(msfbase), File.dirname(msfbase))
+end
+inc = File.dirname(msfbase) + '/../../..'
+$:.unshift(inc)
+
+require 'rex/zip'
+
+# example usage
+zip = Rex::Zip::Archive.new
+zip.add_file("elite.txt", "A" * 1024)
+zip.save_to("lolz.zip")
+```
+
 
 ## Development
 
@@ -32,5 +48,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rex-zip. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/rapid7/rex-zip. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
