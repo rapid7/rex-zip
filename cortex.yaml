@@ -1,0 +1,15 @@
+---
+info:
+  title: Rex Zip
+  description: Rex Library for creating Zip based archives
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/rex-zip
+  x-cortex-tag: rex-zip
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: metasploit
+openapi: 3.0.1
+servers:
+- url: "/"
